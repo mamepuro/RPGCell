@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pQdYYww4Rft45YV0tET3y0WyIHzxSjhPjFesDaPE/q48BWMg8qiajasYmtk6OTNNuaV7uiLV9TY5nf5ALZ85Ww==",
+  "dgSpecHash": "I/9qGXQJ1AseVs1l6uP7CZ2Q2h22Ia6Tbe6JxZ/suzqRAgO2gvj4pwbFX8AzRcDdgVTY1+0r48EOCDyzLCrtiQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ayata\\OneDrive - 筑波大学\\ドキュメント\\Develop\\RPGcell\\RPGcell\\RPGcell.csproj",
+  "projectFilePath": "C:\\Users\\ayata\\OneDrive - 筑波大学\\ドキュメント\\Develop\\RPGCell\\RPGcell\\RPGcell\\RPGcell.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ayata\\.nuget\\packages\\altseed2\\2.0.0-beta4\\altseed2.2.0.0-beta4.nupkg.sha512"
   ],

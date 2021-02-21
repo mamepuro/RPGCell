@@ -15,7 +15,6 @@ namespace RPGcell
 
             // 音を再生します。
             Board board = new Board();
-            Engine.AddNode(board);
             while (Engine.DoEvents())
             {
                 Engine.Update();
