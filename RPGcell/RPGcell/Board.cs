@@ -12,6 +12,8 @@ namespace RPGcell
     {
         private const string textureResourcesPath = "Resources/Textures/";
         private const int cellNumMax = 36;
+        private const int rowMax = 6;
+        private const int columnMax = 6;
         /// <summary>
         /// board上のcellの集合
         /// </summary>
@@ -23,11 +25,14 @@ namespace RPGcell
         public Board()
         {
             Cells = new List<Cell>();
-            for (int cellNum = 0; cellNum < cellNumMax; cellNum++)
+            for(int row = 0; row < rowMax; row++)
             {
-                var cell = new Cell(cellNum);
-                Cells.Add(cell);
-                Engine.AddNode(cell);
+                for(int column = 0; column < columnMax; column++)
+                {
+                    var cell = new Cell(column, row);
+                    Cells.Add(cell);
+                    Engine.AddNode(cell);
+                }
             }
             CelectingCellNumber = 1;
             Cells[CelectingCellNumber].Texture = Texture2D.LoadStrict(textureResourcesPath +"selectedcell.png");

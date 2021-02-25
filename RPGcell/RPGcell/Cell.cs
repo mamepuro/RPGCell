@@ -12,6 +12,14 @@ namespace RPGcell
         /// </summary>
         public int CellNumber { get; set; }
         /// <summary>
+        /// Cellが何列目に存在するかを保存する
+        /// </summary>
+        private int Column { get; set; }
+        /// <summary>
+        /// Cellが何行目に存在するかを保存する
+        /// </summary>
+        private int Row { get; set; } 
+        /// <summary>
         /// このCell上にあるオブジェクトを保管する
         /// </summary>
         public object ObjectOnThisCell { get; set; }
@@ -19,12 +27,12 @@ namespace RPGcell
         /// Cellの状態を保存する
         /// </summary>
         public CellStatus CellStatus { get; set; }
-        public Cell(int cellNum)
+        public Cell(int column, int row)
         {
-            CellNumber = cellNum;
+            CellNumber = row * 6 + column;
             Texture = Texture2D.LoadStrict("Resources/Textures/cell.png");
-            float x = (cellNum % 6) * Texture.Size.X + 200;
-            int y = (cellNum / 6) * Texture.Size.Y + 100;
+            float x = (CellNumber % 6) * Texture.Size.X + 200;
+            int y = (CellNumber / 6) * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);
         }
     }
