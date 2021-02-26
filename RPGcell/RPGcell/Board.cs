@@ -19,7 +19,7 @@ namespace RPGcell
         public List<Cell> Cells { get; set; }
         /// <summary>
         /// 選択中のCell番号
-        /// </summary>Mr
+        /// </summary>
         public int CelectingCellNumber { get; set; }
         public Board()
         {
