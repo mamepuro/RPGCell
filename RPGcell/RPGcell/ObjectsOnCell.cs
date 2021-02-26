@@ -27,12 +27,16 @@ namespace RPGcell
         /// 何行目に存在するかを保存する
         /// </summary>
         protected int Row { get; set; }
-
-        public ObjectsOnCell(int column, int row)
+        /// <summary>
+        /// Boardへの参照
+        /// </summary>
+        Board board;
+        public ObjectsOnCell(int column, int row, Board board)
         {
             Column = column;
             Row = row;
-            CellNumber = row * 6 + column;
+            CellNumber = Row * 6 + Column;
+            this.board = board;
         }
     }
 }

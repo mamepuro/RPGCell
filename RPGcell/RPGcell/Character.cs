@@ -19,9 +19,9 @@ namespace RPGcell
         /// ターン中に行動できる回数
         /// </summary>
         public int ActionLimit { get; set; }
-        public Character()
+        public Character(int column, int row, Board board)
+            :base(column, row, board)
         {
-
         }
         protected override void OnAdded()
         {
