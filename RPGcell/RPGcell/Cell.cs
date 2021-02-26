@@ -22,7 +22,7 @@ namespace RPGcell
         /// <summary>
         /// このCell上にあるオブジェクトを保管する
         /// </summary>
-        public Character ObjectOnThisCell { get; set; }
+        public ObjectsOnCell ObjectOnThisCell { get; set; }
         /// <summary>
         /// Cellの状態を保存する
         /// </summary>
@@ -34,6 +34,24 @@ namespace RPGcell
             float x = (CellNumber % 6) * Texture.Size.X + 200;
             int y = (CellNumber / 6) * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);
+            ObjectOnThisCell = null;
+        }
+
+        /// <summary>
+        /// このCellにオブジェクトを登録する
+        /// </summary>
+        /// <param name="obj"></param>
+        public void AddObject(ObjectsOnCell obj)
+        {
+            ObjectOnThisCell = obj;
+        }
+
+        /// <summary>
+        /// このCellのオブジェクトを取り除く
+        /// </summary>
+        public void RemoveObject()
+        {
+            ObjectOnThisCell = null;
         }
     }
 }

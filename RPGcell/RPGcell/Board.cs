@@ -37,6 +37,7 @@ namespace RPGcell
             Engine.AddNode(player);
             PlayerCharacter playerCharacter = new PlayerCharacter(0, 0, this);
             Engine.AddNode(playerCharacter);
+            Cells[0].AddObject(playerCharacter);
         }
 
         protected override void OnUpdate()
