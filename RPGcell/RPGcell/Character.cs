@@ -9,7 +9,7 @@ namespace RPGcell
     /// Cell上に乗っかるキャラクター
     /// Playerによって操作されるコマのような存在
     /// </summary>
-    class Character:SpriteNode
+    class Character:ObjectsOnCell
     {
         /// <summary>
         /// キャラクターのHP

@@ -7,5 +7,10 @@ namespace RPGcell
 {
     class PlayerCharacter:Character
     {
+        public PlayerCharacter(Vector2F position)
+        {
+            Texture = Texture2D.LoadStrict(textureResourcePath + "player.png");
+            Position = position;
+        }
     }
 }

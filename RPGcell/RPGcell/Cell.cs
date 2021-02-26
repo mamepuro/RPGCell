@@ -22,7 +22,7 @@ namespace RPGcell
         /// <summary>
         /// このCell上にあるオブジェクトを保管する
         /// </summary>
-        public object ObjectOnThisCell { get; set; }
+        public Character ObjectOnThisCell { get; set; }
         /// <summary>
         /// Cellの状態を保存する
         /// </summary>
