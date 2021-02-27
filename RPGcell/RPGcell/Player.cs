@@ -146,19 +146,24 @@ namespace RPGcell
                 if (Engine.Keyboard.GetKeyState(Key.Enter) == ButtonState.Push)
                 {
                     var obj = board.Cells[fromCellNum].ObjectOnThisCell;
+                    var fromcell = board.Cells[fromCellNum];
+                    var tocell = board.Cells[CellNumber];
                     obj.Position = new Vector2F(x, y);
+                    fromcell.RemoveObject();
+                    tocell.AddObject(obj);
                     actPhase = ActPhase.SelectingCellPhase;
                 }
         }
         protected override void OnUpdate()
         {
-            if (actPhase == ActPhase.DecideCharacterMovePhase)
+            switch(actPhase)
             {
-                DecideCharacterMove();
-            }
-            if (actPhase == ActPhase.SelectingCellPhase)
-            {
-                SelecetCells();
+                case ActPhase.SelectingCellPhase:
+                    SelecetCells();
+                    break;
+                case ActPhase.DecideCharacterMovePhase:
+                    DecideCharacterMove();
+                    break;
             }
             base.OnUpdate();
         }
