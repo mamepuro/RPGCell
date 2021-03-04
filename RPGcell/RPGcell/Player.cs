@@ -53,14 +53,14 @@ namespace RPGcell
         private int CheckRow(int row)
         {
             var r = row;
-            r = MathHelper.Clamp(r, 5, 0);
+            r = MathHelper.Clamp(r, board.rowMax - 1, 0);
             return r;
         }
 
         private int CheckColumn(int column)
         {
             var c = column;
-            c = MathHelper.Clamp(c, 5, 0);
+            c = MathHelper.Clamp(c, board.columnMax - 1, 0);
             return c;
         }
         private void SelecetCells()
@@ -91,9 +91,9 @@ namespace RPGcell
                 Row = CheckRow(Row);
                 y += Texture.Size.Y;
             }
-            x = MathHelper.Clamp(x, Texture.Size.X * 5 + 200, 200);
-            y = MathHelper.Clamp(y, Texture.Size.Y * 5 + 100, 100);
-            CellNumber = Row * 6 + Column;
+            x = MathHelper.Clamp(x, Texture.Size.X * (board.columnMax - 1) + 200, 200);
+            y = MathHelper.Clamp(y, Texture.Size.Y * (board.rowMax - 1) + 100, 100);
+            CellNumber = Row * board.columnMax + Column;
             Console.WriteLine(CellNumber);
             Position = new Vector2F(x, y);
             if(Engine.Keyboard.GetKeyState(Key.Enter) == ButtonState.Push)
@@ -103,6 +103,7 @@ namespace RPGcell
                 {
                     actPhase = ActPhase.DecideCharacterMovePhase;
                     fromCellNum = CellNumber;
+                    board.Cells[CellNumber].Texture = Texture2D.LoadStrict(textureRsourcesPath + "selectedcell.png");
                 }
             }
         }
@@ -152,7 +153,15 @@ namespace RPGcell
                     fromcell.RemoveObject();
                     tocell.AddObject(obj);
                     actPhase = ActPhase.SelectingCellPhase;
+                board.Cells[fromCellNum].Texture = Texture2D.LoadStrict(textureRsourcesPath + "cell.png");
                 }
+                if(Engine.Keyboard.GetKeyState(Key.B) == ButtonState.Push)
+            {
+                var fromcell = board.Cells[fromCellNum];
+                fromcell.Texture = Texture2D.LoadStrict(textureRsourcesPath + "cell.png");
+                actPhase = ActPhase.SelectingCellPhase;
+
+            }
         }
         protected override void OnUpdate()
         {

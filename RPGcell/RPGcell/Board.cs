@@ -11,8 +11,14 @@ namespace RPGcell
     class Board:SpriteNode
     {
         private const string textureResourcesPath = "Resources/Textures/";
-        private const int rowMax = 6;
-        private const int columnMax = 6;
+        /// <summary>
+        /// boardに存在するcellの行数
+        /// </summary>
+        public int rowMax = 7;
+        /// <summary>
+        /// boardに存在するcellの
+        /// </summary>
+        public int columnMax = 6;
         /// <summary>
         /// board上のcellの集合
         /// </summary>
@@ -28,7 +34,7 @@ namespace RPGcell
             {
                 for(int column = 0; column < columnMax; column++)
                 {
-                    var cell = new Cell(column, row);
+                    var cell = new Cell(column, row, rowMax, columnMax);
                     Cells.Add(cell);
                     Engine.AddNode(cell);
                 }
@@ -38,6 +44,9 @@ namespace RPGcell
             PlayerCharacter playerCharacter = new PlayerCharacter(0, 0, this);
             Engine.AddNode(playerCharacter);
             Cells[0].AddObject(playerCharacter);
+            var enemy = new EnemyCharacter(4, 3, this);
+            Engine.AddNode(enemy);
+            Cells[26].AddObject(enemy);
         }
 
         protected override void OnUpdate()

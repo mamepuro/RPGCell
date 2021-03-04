@@ -27,12 +27,12 @@ namespace RPGcell
         /// Cellの状態を保存する
         /// </summary>
         public CellStatus CellStatus { get; set; }
-        public Cell(int column, int row)
+        public Cell(int column, int row, int rowMax, int columnMax)
         {
-            CellNumber = row * 6 + column;
+            CellNumber = row * rowMax+ column;
             Texture = Texture2D.LoadStrict("Resources/Textures/cell.png");
-            float x = (CellNumber % 6) * Texture.Size.X + 200;
-            int y = (CellNumber / 6) * Texture.Size.Y + 100;
+            float x = (CellNumber % columnMax) * Texture.Size.X + 200;
+            int y = (CellNumber / rowMax) * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);
             ObjectOnThisCell = null;
         }
@@ -40,7 +40,7 @@ namespace RPGcell
         /// <summary>
         /// このCellにオブジェクトを登録する
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Cellに追加するオブジェクト</param>
         public void AddObject(ObjectsOnCell obj)
         {
             ObjectOnThisCell = obj;

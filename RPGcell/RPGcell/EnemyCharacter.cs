@@ -5,16 +5,16 @@ using Altseed2;
 
 namespace RPGcell
 {
-    class PlayerCharacter:Character
+    class EnemyCharacter:Character
     {
         private int rowMax;
         private int columnMax;
-        public PlayerCharacter(int column, int row, Board board)
-            :base(column, row, board)
+        public EnemyCharacter(int colum, int row, Board board)
+            :base(colum, row, board)
         {
             rowMax = board.rowMax;
             columnMax = board.columnMax;
-            Texture = Texture2D.LoadStrict(textureResourcePath + "player.png");
+            Texture = Texture2D.LoadStrict(textureResourcePath + "Enemy.png");
             float x = (CellNumber % columnMax) * Texture.Size.X + 200;
             int y = (CellNumber / rowMax) * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);

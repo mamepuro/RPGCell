@@ -15,5 +15,9 @@ namespace RPGcell
         /// キャラクターの移動するCellを決定するフェーズ
         /// </summary>
         DecideCharacterMovePhase,
+        /// <summary>
+        /// キャラクター移動後に行動を決定するフェーズ
+        /// </summary>
+        DecideActPhase,
     }
 }
