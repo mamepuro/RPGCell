@@ -14,11 +14,11 @@ namespace RPGcell
         /// <summary>
         /// boardに存在するcellの行数
         /// </summary>
-        public int rowMax = 7;
+        public int rowMax = 1;
         /// <summary>
         /// boardに存在するcellの
         /// </summary>
-        public int columnMax = 6;
+        public int columnMax = 14;
         /// <summary>
         /// board上のcellの集合
         /// </summary>

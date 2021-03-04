@@ -139,9 +139,9 @@ namespace RPGcell
                     Row = CheckRow(Row);
                     y += Texture.Size.Y;
                 }
-                x = MathHelper.Clamp(x, Texture.Size.X * 5 + 200, 200);
-                y = MathHelper.Clamp(y, Texture.Size.Y * 5 + 100, 100);
-                CellNumber = Row * 6 + Column;
+                x = MathHelper.Clamp(x, Texture.Size.X * (board.columnMax - 1) + 200, 200);
+                y = MathHelper.Clamp(y, Texture.Size.Y * (board.rowMax - 1) + 100, 100);
+                CellNumber = Row * board.columnMax + Column;
                 Console.WriteLine(CellNumber);
                 Position = new Vector2F(x, y);
                 if (Engine.Keyboard.GetKeyState(Key.Enter) == ButtonState.Push)

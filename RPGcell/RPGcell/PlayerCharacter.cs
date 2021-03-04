@@ -15,8 +15,8 @@ namespace RPGcell
             rowMax = board.rowMax;
             columnMax = board.columnMax;
             Texture = Texture2D.LoadStrict(textureResourcePath + "player.png");
-            float x = (CellNumber % columnMax) * Texture.Size.X + 200;
-            int y = (CellNumber / rowMax) * Texture.Size.Y + 100;
+            float x = column * Texture.Size.X + 200;
+            int y = row * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);
         }
     }

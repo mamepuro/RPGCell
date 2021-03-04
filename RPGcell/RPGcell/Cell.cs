@@ -29,10 +29,10 @@ namespace RPGcell
         public CellStatus CellStatus { get; set; }
         public Cell(int column, int row, int rowMax, int columnMax)
         {
-            CellNumber = row * rowMax+ column;
+            CellNumber = row * columnMax + column;
             Texture = Texture2D.LoadStrict("Resources/Textures/cell.png");
-            float x = (CellNumber % columnMax) * Texture.Size.X + 200;
-            int y = (CellNumber / rowMax) * Texture.Size.Y + 100;
+            float x = (column) * Texture.Size.X + 200;
+            int y = (row) * Texture.Size.Y + 100;
             Position = new Vector2F(x, (float)y);
             ObjectOnThisCell = null;
         }
